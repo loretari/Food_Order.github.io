@@ -5,6 +5,8 @@ items: [],
     totalAmount: 0,
     addItem: (item) => {},
     removeItem: (id) => {},
+    cleaCart: () => {}
+
 })
 
 export default CartContext;
