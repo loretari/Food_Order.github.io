@@ -27,7 +27,7 @@ const Checkout = (props) => {
     const enteredPostalCode = postalInputRef.current.value;
     const enteredCity = cityInputRef.current.value;
 
-   
+
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredStreetIsValid = !isEmpty(enteredStreet);
     const enteredCityIsValid = !isEmpty(enteredCity);
@@ -51,9 +51,15 @@ const Checkout = (props) => {
         return ;
 
     }
-    }
-    // submit the cart data
 
+   props.onConfirm({
+       name: enteredName,
+       street: enteredStreet,
+       city: enteredCity,
+       postalCode: enteredPostalCode,
+
+   })
+}
     const nameControlClasses = `${classes.control}
       ${formInputsValidity.name ? '' : classes.invalid}`
 
