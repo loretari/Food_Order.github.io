@@ -72,7 +72,8 @@ await fetch('https://react-http-cd156-default-rtdb.firebaseio.com/orders.json', 
          </div>
      );
 
-    const cartModalContent = <React.Fragment>
+    const cartModalContent = (
+        <React.Fragment>
         {cartItems}
         <div className={classes.total}>
             <span>Total Amount</span>
@@ -82,18 +83,21 @@ await fetch('https://react-http-cd156-default-rtdb.firebaseio.com/orders.json', 
         <Checkout onConfirm ={submitOrderHandler} onCancel = {props.onClose}/>}
         {!isCheckout && modalActions}
     </React.Fragment>
+    )
 
     const isSubmittingModalContent = <p>Sending order data...</p>
 
-    const didSubmittingModalContent =
-        <React.Fragment>
-        <p>Successfully sent the order</p>
-            <div className={classes.actions}>
-                <button className={classes['button--alt']} onClick={props.onClose}>
-                    Close
-                </button>
-            </div>
-        </React.Fragment>
+    const didSubmittingModalContent = (
+            <React.Fragment>
+                <p>Successfully sent the order</p>
+                <div className={classes.actions}>
+                    <button className={classes['button--alt']} onClick={props.onClose}>
+                        Close
+                    </button>
+                </div>
+            </React.Fragment>
+        )
+
     return (
         <Modal onClose = {props.onClose}>
             {!isSubmitting && !didSubmitt && cartModalContent}
